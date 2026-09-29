@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Huella | Tienda y servicios para tu mascota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F8FB;--surface:#fff;--ink:#1B2A41;--muted:#5B6B82;--line:#DCE3EE;--brand:#2447D6;--on-brand:#fff;--sun:#FFC93C;--sun-ink:#3A2A00;--leaf:#1E9E6A;--tint:#E3EBFF;--band:#16233F;--on-band:#EAF0FA;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1524;--surface:#16203A;--ink:#EAF0FA;--muted:#9AAAC4;--line:#26335A;--brand:#7F98FF;--on-brand:#0E1524;--tint:#1C2A55;--band:#1C2A55}}
+:root[data-theme="dark"]{--bg:#0E1524;--surface:#16203A;--ink:#EAF0FA;--muted:#9AAAC4;--line:#26335A;--brand:#7F98FF;--on-brand:#0E1524;--tint:#1C2A55;--band:#1C2A55}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4.1rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0}a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--brand);color:var(--on-brand);font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn.sun{background:var(--sun);color:var(--sun-ink)}
+.btn.sm{padding:8px 18px;font-size:.95rem}
+.svc-item .btn{grid-row:1/3;grid-column:2;align-self:center}
+a.tag{text-decoration:none}
+.muted{color:var(--muted)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .top{display:flex;align-items:center;gap:16px;height:68px}
+.logo{font:800 1.4rem "Bricolage Grotesque",sans-serif;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:26px;padding:8px 0 12px;overflow-x:auto}nav a{text-decoration:none;font-weight:500;white-space:nowrap}
+.cart{padding:8px 16px;font-size:.95rem}
+/* hero */
+.hero{padding-top:56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero p.lead{font-size:1.2rem;margin:20px 0 28px;max-width:34ch;color:var(--muted)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.pet{background:var(--surface);border:2px solid var(--ink);border-radius:28px;padding:22px;box-shadow:10px 10px 0 var(--sun)}
+.pet-top{display:flex;gap:14px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:800 1.6rem "Bricolage Grotesque",sans-serif;color:var(--sun-ink)}
+.pet-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.pet-row:last-child{border:0;padding-bottom:0}
+.pet-row small{display:block;color:var(--muted)}
+.tag{font-size:.85rem;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--tint);color:var(--brand);white-space:nowrap}
+.tag.g{background:#DDF5EA;color:#136B48}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.g{background:#15382C;color:#6FE0B0}}
+:root[data-theme="dark"] .tag.g{background:#15382C;color:#6FE0B0}
+/* shop */
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.cats{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:8px 18px;border-radius:999px;border:2px solid var(--line);font-weight:500;background:var(--surface)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod .ph{aspect-ratio:1;border-radius:20px;background:var(--tint);display:grid;place-items:center;margin-bottom:12px;position:relative;overflow:hidden}
+.prod:nth-child(2) .ph{background:#FFF0C2}.prod:nth-child(3) .ph{background:#DDF5EA}.prod:nth-child(4) .ph{background:#FFE1DC}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .prod:nth-child(n) .ph{background:var(--tint)}}
+:root[data-theme="dark"] .prod:nth-child(n) .ph{background:var(--tint)}
+.shape{width:46%;height:46%;background:var(--brand);border-radius:16px}
+.s-bag{border-radius:14px 14px 22px 22px;width:42%;height:58%;background:var(--brand)}
+.s-ring{background:transparent;border:14px solid var(--leaf);border-radius:50%;width:50%;height:50%}
+.s-ball{border-radius:50%;background:var(--sun)}
+.s-bowl{height:26%;width:56%;border-radius:0 0 60px 60px;background:#E4564A}
+.rate{font-size:.9rem;color:var(--muted)}
+.price{font-weight:700;margin-top:4px}
+.vars{display:flex;gap:6px;margin-top:8px}.vars span{font-size:.8rem;border:1px solid var(--line);border-radius:8px;padding:2px 8px;color:var(--muted)}
+/* services */
+.svc{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+.svc-list{border-top:2px solid var(--ink)}
+.svc-item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.svc-item p{color:var(--muted);grid-column:1}
+.svc-item b{grid-row:1/3;grid-column:2;align-self:center;text-align:right}
+.book{background:var(--surface);border:2px solid var(--ink);border-radius:24px;padding:24px;position:sticky;top:88px}
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.dates div{border:2px solid var(--line);border-radius:14px;padding:10px 14px}
+.dates small{display:block;color:var(--muted)}
+.slots{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.slots span{padding:6px 12px;border-radius:10px;border:2px solid var(--line);font-size:.92rem}
+.slots .on{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.slots .off{text-decoration:line-through;color:var(--muted);opacity:.6}
+.total{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);margin-bottom:12px;font-weight:700}
+/* loyalty */
+.band{background:var(--band);color:var(--on-band);border-radius:36px;padding:56px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.band p{color:#B9C6E0;margin-top:14px;max-width:38ch}
+.band .btn{margin-top:24px}
+.ledger{background:rgba(255,255,255,.07);border-radius:20px;padding:22px}
+.bal{font:800 3rem "Bricolage Grotesque",sans-serif;line-height:1}
+.bal small{font:500 1rem Figtree,sans-serif;color:#B9C6E0;margin-left:8px}
+.meter{height:10px;border-radius:99px;background:rgba(255,255,255,.15);margin:16px 0 4px;overflow:hidden}
+.meter i{display:block;height:100%;width:62%;background:var(--sun)}
+.led{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid rgba(255,255,255,.14);font-size:.95rem}
+.led em{font-style:normal;font-weight:700;color:#7FE3B4}.led em.neg{color:#FFB4A8}
+/* pay */
+.pays{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);border-radius:24px;overflow:hidden;background:var(--surface)}
+.pays>div{padding:28px}.pays>div+div{border-left:1px solid var(--line)}
+.pays p{color:var(--muted);margin-top:8px}
+.pays .tag{margin-bottom:14px;display:inline-block}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:.95rem}
+footer .fcols{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:28px}footer h3{font-size:1rem;color:var(--ink);margin-bottom:8px}footer a{display:block;text-decoration:none;padding:3px 0}footer .fine{margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+.promo{background:var(--band);color:var(--on-band);text-align:center;font-size:.92rem;padding:8px 20px}
+.search{flex:1}.search input{width:100%;padding:11px 18px;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+.pts{font-weight:700;font-size:.9rem;padding:8px 14px;border-radius:999px;background:var(--sun);color:var(--sun-ink);text-decoration:none;white-space:nowrap}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+.tile{display:flex;align-items:center;gap:16px;padding:18px;border-radius:22px;background:var(--tint);text-decoration:none}
+.tile:nth-child(2){background:#FFF0C2;color:#3A2A00}.tile:nth-child(3){background:#DDF5EA;color:#0F4D35}
+.tile .ph{width:84px;height:84px;border-radius:18px;background:var(--surface);display:grid;place-items:center;flex:none}
+.tile b{font:700 1.25rem "Bricolage Grotesque",sans-serif}.tile small{display:block;font:400 .95rem Figtree,sans-serif;opacity:.8}
+.more{font-weight:700}
+.add{display:block;width:100%;margin-top:12px;text-align:center}
+.pro{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pcard{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:2px solid var(--ink);border-radius:24px;padding:16px}
+.pimg{height:130px;border-radius:16px;display:grid;place-items:center;font-size:3.2rem;background:var(--tint)}
+.pcard p{color:var(--muted);flex:1}.pcard .btn{text-align:center}
+.pcard .dates{margin:4px 0}.pcard .dates div{padding:6px 10px;font-size:.9rem}
+@media(max-width:860px){
+nav{display:none}
+header .top{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px}
+.search{order:5;flex-basis:100%}
+.tiles{grid-template-columns:1fr}
+.pro{grid-template-columns:repeat(2,1fr)}
+footer .fcols{grid-template-columns:1fr 1fr}
+.hero .wrap,.svc,.band,.pays{grid-template-columns:1fr}
+.grid4{grid-template-columns:repeat(2,1fr)}
+.band{padding:36px 24px;border-radius:28px}
+.pays>div+div{border-left:0;border-top:1px solid var(--line)}
+.book{position:static}
+section{padding:52px 0}}
+@media(max-width:520px){.pro{grid-template-columns:1fr}footer .fcols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="promo">Paga con tarjeta, Binance Pay, Pago Móvil o transferencia. Cada compra suma puntos.</div>
+<header>
+<div class="wrap top">
+<a class="logo" href="#">🐾 Huella</a>
+<label class="search"><input type="search" placeholder="Buscar alimentos, accesorios y juguetes" aria-label="Buscar productos"></label>
+<a class="pts" href="#puntos">1.240 puntos</a>
+<a class="btn alt cart" href="#">Mi cuenta</a>
+<a class="btn cart" href="#">Carrito (2)</a>
+</div>
+<div class="wrap"><nav><a href="#tienda">Alimentos</a><a href="#tienda">Accesorios</a><a href="#tienda">Juguetes</a><a href="#servicios">Servicios</a><a href="#puntos">Puntos</a><a href="#pagos">Formas de pago</a></nav></div>
+</header>
+
+<section class="hero"><div class="wrap">
+<div>
+<h1>La comida, el veterinario y el hotel de tu mascota, en un solo lugar.</h1>
+<p class="lead">Compra alimentos y accesorios, reserva citas y suma puntos que valen como dinero.</p>
+<div class="cta"><a class="btn" href="#tienda">Comprar ahora</a><a class="btn alt" href="#servicios">Reservar un servicio</a></div>
+</div>
+<div class="pet" aria-label="Qué puedes hacer en Huella">
+<div class="pet-row"><div><b>Tienda</b><small>Alimentos, accesorios y juguetes</small></div><a class="tag" href="#tienda">Comprar</a></div>
+<div class="pet-row"><div><b>Veterinaria y adiestramiento</b><small>Agenda tu cita en el calendario</small></div><a class="tag" href="#servicios">Agendar</a></div>
+<div class="pet-row"><div><b>Paseo canino y hotel</b><small>Reserva según disponibilidad</small></div><a class="tag" href="#servicios">Reservar</a></div>
+<div class="pet-row"><div><b>Puntos</b><small>Gana con cada compra y úsalos como dinero</small></div><a class="tag g" href="#puntos">Ver</a></div>
+</div>
+</div></section>
+
+<section id="tienda"><div class="wrap">
+<div class="tiles">
+<a class="tile" href="#"><div class="ph"><div class="shape s-bag"></div></div><b>Alimentos<small>Ver productos</small></b></a>
+<a class="tile" href="#"><div class="ph"><div class="shape s-ring"></div></div><b>Accesorios<small>Ver productos</small></b></a>
+<a class="tile" href="#"><div class="ph"><div class="shape s-ball"></div></div><b>Juguetes<small>Ver productos</small></b></a>
+</div>
+<div class="head"><h2>Destacados</h2><a class="more" href="#">Ver todo</a></div>
+<div class="grid4">
+<article class="prod"><div class="ph"><div class="shape s-bag"></div></div><h3>Alimento adulto razas grandes</h3><div class="rate">★★★★★ 128 reseñas</div><div class="vars"><span>3 kg</span><span>7 kg</span><span>15 kg</span></div><div class="price">Desde $18,90</div><a class="btn alt sm add" href="#">Agregar al carrito</a></article>
+<article class="prod"><div class="ph"><div class="shape s-ring"></div></div><h3>Collar reflectante ajustable</h3><div class="rate">★★★★☆ 64 reseñas</div><div class="vars"><span>S</span><span>M</span><span>L</span></div><div class="price">$9,50</div><a class="btn alt sm add" href="#">Agregar al carrito</a></article>
+<article class="prod"><div class="ph"><div class="shape s-ball"></div></div><h3>Pelota de goma resistente</h3><div class="rate">★★★★★ 92 reseñas</div><div class="vars"><span>Chica</span><span>Grande</span></div><div class="price">$6,00</div><a class="btn alt sm add" href="#">Agregar al carrito</a></article>
+<article class="prod"><div class="ph"><div class="shape s-bowl"></div></div><h3>Comedero antideslizante</h3><div class="rate">★★★★☆ 41 reseñas</div><div class="vars"><span>500 ml</span><span>1 L</span></div><div class="price">$11,25</div><a class="btn alt sm add" href="#">Agregar al carrito</a></article>
+</div></div></section>
+
+<section id="servicios"><div class="wrap">
+<div class="head"><h2>Servicios profesionales</h2></div>
+<div class="pro">
+<article class="pcard"><div class="pimg">🩺</div><h3>Servicio veterinario</h3><p>Agenda tu cita en el calendario.</p><a class="btn sm" href="#">Agendar</a></article>
+<article class="pcard"><div class="pimg">🎓</div><h3>Adiestramiento</h3><p>Agenda tu cita en el calendario.</p><a class="btn sm" href="#">Agendar</a></article>
+<article class="pcard"><div class="pimg">🐕</div><h3>Paseo canino</h3><p>Reserva y consulta la disponibilidad.</p><a class="btn sm" href="#">Reservar</a></article>
+<article class="pcard"><div class="pimg">🏨</div><h3>Hotelería</h3><p>Reserva por noches, con check-in y check-out.</p><div class="dates"><div><small>Check-in</small>Vie 10 oct</div><div><small>Check-out</small>Lun 13 oct</div></div><a class="btn sm" href="#">Reservar</a></article>
+</div></div></section>
+
+<section id="puntos"><div class="wrap"><div class="band">
+<div><h2>Cada compra suma. Cada punto vale.</h2>
+<p>Ganas puntos con cada compra y los usas como dinero para pagar productos o servicios. Ves tu balance en tiempo real desde tu perfil.</p>
+<a class="btn sun" href="#">Ver mi perfil</a></div>
+<div class="ledger">
+<div class="bal">1.240<small>puntos</small></div>
+<small style="color:#B9C6E0;display:block;margin:6px 0 14px">Balance en tiempo real</small>
+<div class="led"><span>Compra de alimento</span><em>+38</em></div>
+<div class="led"><span>Canje en un paseo canino</span><em class="neg">−300</em></div>
+<div class="led"><span>Compra de accesorios</span><em>+12</em></div>
+</div></div></div></section>
+
+<section id="pagos" style="padding-top:0"><div class="wrap">
+<h2 style="margin-bottom:32px">Paga como prefieras</h2>
+<div class="pays">
+<div><span class="tag">USD</span><h3>Tarjeta de crédito o débito</h3><p>Tarjetas internacionales en dólares (USD), procesadas de forma segura con Stripe.</p></div>
+<div><span class="tag">Cripto</span><h3>Binance Pay</h3><p>El pago se confirma automáticamente.</p></div>
+<div><span class="tag g">Local</span><h3>Pago móvil o transferencia</h3><p>Ingresa el número de referencia de tu comprobante. Tu pedido queda pendiente hasta que verifiquemos el pago; luego se activa tu reserva, se acreditan tus puntos y te avisamos por correo.</p></div>
+</div></div></section>
+
+<footer><div class="wrap fcols">
+<div><a class="logo" href="#">🐾 Huella</a><p>Tienda y servicios para tu mascota.</p></div>
+<div><h3>Tienda</h3><a href="#">Alimentos</a><a href="#">Accesorios</a><a href="#">Juguetes</a></div>
+<div><h3>Servicios</h3><a href="#">Servicio veterinario</a><a href="#">Adiestramiento</a><a href="#">Paseo canino</a><a href="#">Hotelería</a></div>
+<div><h3>Mi cuenta</h3><a href="#">Mi perfil</a><a href="#">Mis pedidos</a><a href="#">Mis puntos</a></div>
+<div><h3>Formas de pago</h3><a href="#">Tarjeta (Stripe)</a><a href="#">Binance Pay</a><a href="#">Pago móvil</a><a href="#">Transferencia</a></div>
+</div><div class="wrap fine">Mockup de diseño, no es una tienda real.</div></footer>
+</body>
+</html>
